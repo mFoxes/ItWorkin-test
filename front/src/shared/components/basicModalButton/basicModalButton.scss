@@ -1,0 +1,15 @@
+.basic-modal {
+    &__btn  {
+        cursor: pointer;
+        width: 120px;
+        padding: 6px 12px;
+        background-color: white;
+        border: 1px solid #393939;
+        border-radius: 6px;
+        
+        &.cancel {
+            border-color: rgb(244, 67, 54);
+            color: rgb(244, 67, 54);
+        }
+    }
+}
