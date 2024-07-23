@@ -1,0 +1,39 @@
+.basic-modal {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(57, 57, 57, 0.4);
+
+    &__container {
+        display: flex;
+        flex-direction: column;
+        max-width: 400px;
+        width: calc(100% - 20px);
+        padding: 20px;
+        background-color: white;
+        border-radius: 16px;
+        gap: 16px;
+    }
+
+    &__title {
+        font-weight: 600;
+        font-size: 28px;
+    }
+
+    &__content {
+        flex: 1 1 100%;
+    }
+
+    &__tools {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        gap: 20px;
+    }
+
+}

@@ -1,0 +1,28 @@
+.editor-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: calc(100% - 20px);
+
+    &__input {
+        padding: 4px 8px;
+        font-size: 18px;
+        border: 1px solid #393939;
+        border-radius: 4px;
+        width: 100%;
+        font-size: 16px;
+
+        .error & {
+            border-color: rgb(244, 67, 54);
+        }
+    }
+
+    &__error {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        height: 16px;
+        font-size: 14px;
+        color: rgb(244, 67, 54);
+    }
+}

@@ -1,0 +1,52 @@
+.todo {
+    display: flex;
+    border: 1px solid #393939;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 10px 20px;
+    
+
+    &__title {
+        font-size: 24px;
+        font-weight: 600;
+    }
+
+    &__description {
+        font-size: 18px;
+    }
+
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__date {
+    }
+
+    &__tools {
+        display: flex;
+        gap: 4px;
+    }
+
+    &__edit, 
+    &__delete {
+        border: none;
+        background-color: inherit;
+        cursor: pointer;
+
+
+        & svg {
+            width: 22px;
+            height: 22px;
+        }    
+    }
+    &__edit {
+    }
+
+    &__delete {
+        stroke: rgb(244, 67, 54);
+    }
+}
