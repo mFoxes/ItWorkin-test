@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from 'react';
-import './home.scss';
-import { TodoList } from './components/todoList/todoList';
-import { useAppDispatch } from '../../shared/hooks/useAppDispatch';
-import { getTodoList, setInitialState, setIsTodoModalOpen } from './slices/homeSlice';
-import { TodoEditorModal } from './components/todoEditorModal/todoEditorModal';
-import { TodoConfirmModal } from './components/todoConfirmationModal/todoConfirmationModal';
-import { useAppSelector } from '../../shared/hooks/useAppSelector';
+import { useEffect } from 'react';
 import { LoadingState } from '../../shared/constants/loadingState';
+import { useAppDispatch } from '../../shared/hooks/useAppDispatch';
+import { useAppSelector } from '../../shared/hooks/useAppSelector';
+import { TodoConfirmModal } from './components/todoConfirmationModal/todoConfirmationModal';
+import { TodoEditorModal } from './components/todoEditorModal/todoEditorModal';
+import { TodoList } from './components/todoList/todoList';
+import './home.scss';
+import { getTodoList, setInitialState, setIsTodoModalOpen } from './slices/homeSlice';
 
 export const Home = () => {
     const dispatch = useAppDispatch();

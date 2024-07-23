@@ -23,6 +23,8 @@ export const TodoEditorModal = ({ onSave }: TodoEditorModalProps) => {
     const currentTodo = useAppSelector((store) => store.home.currentTodo);
     const isEditorModalOpen = useAppSelector((store) => store.home.isEditorModalOpen);
 
+    const isEditorLoading = useAppSelector((store) => store.home.isEditorLoading);
+
     const handleSave = async (data: TodoDataCreate) => {
         let resp = null;
         if (currentTodo !== null) {

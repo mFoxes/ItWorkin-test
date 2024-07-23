@@ -1,29 +1,39 @@
 import React, { ReactNode } from 'react';
 import { BasicModal } from '../basicModal/basicModal';
 import { BasicModalButton } from '../basicModalButton/basicModalButton';
+import { LoadingState } from '../../constants/loadingState';
 
 interface ConfirmModalProps {
     title?: string;
+    isLoading?: boolean;
     onConfirm?: () => void;
     onClose?: () => void;
     children?: ReactNode;
 }
 
-export const ConfirmModal = ({ title, onConfirm, onClose, children }: ConfirmModalProps) => {
+export const ConfirmModal = ({
+    title,
+    isLoading = false,
+    onConfirm,
+    onClose,
+    children
+}: ConfirmModalProps) => {
     const handleConfirm = () => {
         onConfirm && onConfirm();
     };
 
     const handleClose = () => {
-        onClose && onClose();
+        if (!isLoading) {
+            onClose && onClose();
+        }
     };
 
     const tools = (
         <>
-            <BasicModalButton className="cancel" onClick={handleClose}>
+            <BasicModalButton disabled={isLoading} className="cancel" onClick={handleClose}>
                 Отмена
             </BasicModalButton>
-            <BasicModalButton className="confirm" onClick={handleConfirm}>
+            <BasicModalButton disabled={isLoading} className="confirm" onClick={handleConfirm}>
                 Подтвердить
             </BasicModalButton>
         </>

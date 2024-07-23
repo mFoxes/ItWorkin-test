@@ -6,9 +6,11 @@ import { EditorFormSettings } from '../../types/editorFormSettings';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 
-interface EditorFormField extends EditorFormSettings {}
+interface EditorFormField extends EditorFormSettings {
+    isLoading?: boolean;
+}
 
-export const EditorFormField = ({ name, title, fieldType }: EditorFormField) => {
+export const EditorFormField = ({ isLoading = false, name, title, fieldType }: EditorFormField) => {
     const { setFieldValue } = useFormikContext();
     const [field, meta, helpers] = useField(name);
 
@@ -17,6 +19,7 @@ export const EditorFormField = ({ name, title, fieldType }: EditorFormField) => 
             case 'date':
                 return (
                     <DatePicker
+                        disabled={isLoading}
                         className="editor-form-field__input"
                         {...field}
                         value={(field.value && new Date(field.value)) || null}
@@ -25,7 +28,9 @@ export const EditorFormField = ({ name, title, fieldType }: EditorFormField) => 
                     />
                 );
             default:
-                return <input className="editor-form-field__input" {...field} />;
+                return (
+                    <input disabled={isLoading} className="editor-form-field__input" {...field} />
+                );
         }
     };
 
