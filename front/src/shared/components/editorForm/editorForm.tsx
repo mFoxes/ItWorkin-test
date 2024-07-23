@@ -11,6 +11,7 @@ interface EditorFormProps<T> {
     settings: EditorFormSettings[];
     onSubmit: (data: T) => void;
     children?: ReactNode;
+    isLoading?: boolean;
 }
 
 export const EditorForm = <T extends FormikValues>({
@@ -18,7 +19,8 @@ export const EditorForm = <T extends FormikValues>({
     validationSchema,
     settings,
     onSubmit,
-    children
+    children,
+    isLoading
 }: EditorFormProps<T>) => {
     const handleSubmit = (data: T) => {
         onSubmit && onSubmit(data);
@@ -33,7 +35,7 @@ export const EditorForm = <T extends FormikValues>({
                 <form onSubmit={handleSubmit} className="editor-form">
                     <div className="editor-form__fields">
                         {settings.map((i) => (
-                            <EditorFormField {...i} />
+                            <EditorFormField isLoading={isLoading} {...i} />
                         ))}
                     </div>
                     <div className="editor-form__tools">{children}</div>

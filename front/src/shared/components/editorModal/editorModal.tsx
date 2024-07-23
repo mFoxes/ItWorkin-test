@@ -13,6 +13,7 @@ interface EditorModalProps<T> {
     settings: EditorFormSettings[];
     onSave?: (data: T) => void;
     onClose?: () => void;
+    isLoading?: boolean;
 }
 
 export const EditorModal = <T extends FormikValues>({
@@ -21,7 +22,8 @@ export const EditorModal = <T extends FormikValues>({
     validationSchema,
     settings,
     onSave,
-    onClose
+    onClose,
+    isLoading = false
 }: EditorModalProps<T>) => {
     const handleClose = () => {
         onClose && onClose();
@@ -33,10 +35,10 @@ export const EditorModal = <T extends FormikValues>({
 
     const tools = (
         <>
-            <BasicModalButton className="cancel" onClick={handleClose}>
+            <BasicModalButton disabled={isLoading} className="cancel" onClick={handleClose}>
                 Отмена
             </BasicModalButton>
-            <BasicModalButton className="save" type="submit">
+            <BasicModalButton disabled={isLoading} className="save" type="submit">
                 Сохранить
             </BasicModalButton>
         </>
